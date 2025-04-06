@@ -14,5 +14,9 @@ def index(request):
     }
     return render(request,'asa_travel/index.html',context)
 
-def destination_detail(request):
-    return render(request,'asa_travel/destination_detail.html')
+def destination_detail(request,destination_id):
+    obj_destination = Destination.objects.get(pk=destination_id)
+    context = {
+        'destination':obj_destination
+    }
+    return render(request,'asa_travel/destination_detail.html',context)
