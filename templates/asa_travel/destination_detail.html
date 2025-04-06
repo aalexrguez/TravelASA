@@ -21,13 +21,13 @@
         <button class="nav-link active" id="attractions-tab" data-bs-toggle="tab" data-bs-target="#attractions" type="button" role="tab">Atracciones Turisticas</button>
     </li>
     <li class="nav-item" role="presentation">
-        <button class="nav-link" id="museums-tab" data-bs-toggle="tab" data-bs-target="#museums" type="button" role="tab">Comida y Restaurantes</button>
+        <button class="nav-link" id="restaurants-tab" data-bs-toggle="tab" data-bs-target="#restaurants" type="button" role="tab">Comida y Restaurantes</button>
     </li>
     <li class="nav-item" role="presentation">
-        <button class="nav-link" id="hotels-tab" data-bs-toggle="tab" data-bs-target="#hotels" type="button" role="tab">Hospedajes</button>
+        <button class="nav-link" id="accommodations-tab" data-bs-toggle="tab" data-bs-target="#accommodations" type="button" role="tab">Hospedajes</button>
     </li>
     <li class="nav-item" role="presentation">
-        <button class="nav-link" id="food-tab" data-bs-toggle="tab" data-bs-target="#food" type="button" role="tab">Actividades y Tour</button>
+        <button class="nav-link" id="activities-tab" data-bs-toggle="tab" data-bs-target="#activities" type="button" role="tab">Actividades y Tour</button>
     </li>
 </ul>
 
@@ -44,6 +44,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{attraction.attraction_name}}</h5>
                         <p class="card-text">{{attraction.attraction_description}}</p>
+                        <a href="#" class="btn btn-primary mt-2">Ir</a>
                     </div>
                 </div>
             </div>
@@ -52,7 +53,7 @@
     </div>
 
     <!-- Comida y Restaurantes -->
-    <div class="tab-pane fade" id="museums" role="tabpanel">
+    <div class="tab-pane fade" id="restaurants" role="tabpanel">
         <div class="row">
             {% for restaurant in restaurants %}
             <div class="col-md-4 mb-4">
@@ -61,6 +62,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{restaurant.fd_name}}</h5>
                         <p class="card-text">{{restaurant.fd_description}}</p>
+                        <a href="#" class="btn btn-primary mt-2">Ir</a>
                     </div>
                 </div>
             </div>
@@ -69,7 +71,7 @@
     </div>
 
     <!-- Hospedajes -->
-    <div class="tab-pane fade" id="hotels" role="tabpanel">
+    <div class="tab-pane fade" id="accommodations" role="tabpanel">
         <div class="row">
             {% for accommodation in accommodations %}
             <div class="col-md-4 mb-4">
@@ -78,6 +80,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{accommodation.accommodation_name}}</h5>
                         <p class="card-text">Precio aproximado: {{accomodation.accommodation_price_per_night}}</p>
+                        <a href="#" class="btn btn-primary mt-2">Ir</a>
                     </div>
                 </div>
             </div>
@@ -86,7 +89,7 @@
     </div>
 
     <!-- Actividades y Tour -->
-    <div class="tab-pane fade" id="food" role="tabpanel">
+    <div class="tab-pane fade" id="activities" role="tabpanel">
         <div class="row">
             {% for activity in activities %}
             <div class="col-md-4 mb-4">
@@ -95,6 +98,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{activity.at_name}}</h5>
                         <p class="card-text">{{activity.at_description}}</p>
+                        <a href="#" class="btn btn-primary mt-2">Ir</a>
                     </div>
                 </div>
             </div>
