@@ -10,36 +10,17 @@
     
     <h2 class="mb-3">Destinos Populares</h2>
     <div class="row">
+        {% for destination in destinations %}
         <div class="col-md-4">
             <div class="card">
-                <img src="https://placehold.co/200x200" class="card-img-top" alt="Destino 1">
+                <img src="{{destination.image.url}}" class="card-img-top" alt="Destino 1">
                 <div class="card-body">
-                    <h5 class="card-title">París, Francia</h5>
-                    <p class="card-text">La ciudad del amor y la luz te espera.</p>
+                    <h5 class="card-title">{{destination.name}}</h5>
+                    <p class="card-text">{{destination.description}}</p>
                     <a href="#" class="btn btn-primary">Ver más</a>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <img src="https://placehold.co/200x200" class="card-img-top" alt="Destino 2">
-                <div class="card-body">
-                    <h5 class="card-title">Tokio, Japón</h5>
-                    <p class="card-text">La mezcla perfecta de tecnología y tradición.</p>
-                    <a href="#" class="btn btn-primary">Ver más</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <img src="https://placehold.co/200x200" class="card-img-top" alt="Destino 3">
-                <div class="card-body">
-                    <h5 class="card-title">Río de Janeiro, Brasil</h5>
-                    <p class="card-text">Playas y carnaval en su máxima expresión.</p>
-                    <a href="#" class="btn btn-primary">Ver más</a>
-                </div>
-            </div>
-        </div>
     </div>
+    {% endfor %}
 </div>
 {% endblock %}
