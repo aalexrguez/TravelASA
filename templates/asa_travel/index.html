@@ -1,5 +1,9 @@
 {% extends "asa_travel/base.html" %}
+{% load static %}
 
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'asa_travel/css/styles.css' %}">
+{% endblock %}
 {% block content %}
 <div class="container text-center">
     <h1 class="my-4">Descubre destinos increíbles con TravelASA</h1>
@@ -15,11 +19,11 @@
         {% for destination in destinations %}
         <div class="col-md-4">
             <div class="card">
-                <img src="{{destination.image.url}}" class="card-img-top" alt="Destino 1">
+                <img src="{{destination.destination_image.url}}" class="card-img-top" alt="Destino 1">
                 <div class="card-body">
-                    <h5 class="card-title">{{destination.name}}</h5>
-                    <p class="card-text">{{destination.description}}</p>
-                    <a href="#" class="btn btn-primary">Ver más</a>
+                    <h5 class="card-title">{{destination.destination_name}}</h5>
+                    <p class="card-text">{{destination.destination_description}}</p>
+                    <a href="{% url 'asa_travel:destination_detail' destination.id %}" class="btn btn-primary">Ver más</a>
                 </div>
             </div>
     </div>
