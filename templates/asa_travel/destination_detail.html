@@ -8,10 +8,10 @@
 {% endblock %}
 <!-- Imagen y título del destino -->
 <div class="card mb-4 shadow-sm">
-    <img src="URL_IMAGEN_DESTINO" class="card-img-top" alt="NOMBRE_DESTINO">
+    <img src="{{destination.destination_image.url}}" class="card-img-top" alt="NOMBRE_DESTINO">
     <div class="card-body text-center">
-        <h1 class="card-title">NOMBRE_DESTINO</h1>
-        <p class="card-text">DESCRIPCIÓN_DEL_DESTINO</p>
+        <h1 class="card-title">{{destination.destination_name}}</h1>
+        <p class="card-text">{{destination.destination_description}}</p>
     </div>
 </div>
 
