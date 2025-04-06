@@ -1,0 +1,12 @@
+body {
+    background-color: #C1E8FF;
+}
+.navbar, .footer {
+    background-color: #052659;
+}
+.footer {
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
