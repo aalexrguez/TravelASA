@@ -13,3 +13,6 @@ def index(request):
         'destinations':destination
     }
     return render(request,'asa_travel/index.html',context)
+
+def destination_detail(request):
+    return render(request,'asa_travel/destination_detail.html')
