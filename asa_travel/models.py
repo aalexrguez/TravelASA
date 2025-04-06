@@ -13,7 +13,7 @@ class Category(models.Model):
     category_status = models.BooleanField()
 
     def __str__(self):
-        return self.name
+        return self.category_name
 
 class Attraction(models.Model):
     attraction_name = models.CharField(max_length=100)
