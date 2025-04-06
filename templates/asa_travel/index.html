@@ -3,10 +3,12 @@
 {% block content %}
 <div class="container text-center">
     <h1 class="my-4">Descubre destinos increíbles con TravelASA</h1>
-    <div class="input-group mb-4">
-        <input type="text" class="form-control" placeholder="Buscar destinos...">
-        <button class="btn btn-primary">Buscar</button>
-    </div>
+    <form method="get" action="">
+        <div class="input-group mb-4">
+            <input type="text" class="form-control" name="q" placeholder="Buscar destinos..." value="{{ request.GET.q }}">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </div>
+    </form>
     
     <h2 class="mb-3">Destinos Populares</h2>
     <div class="row">
