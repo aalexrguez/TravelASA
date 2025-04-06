@@ -1,0 +1,99 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    object-fit: cover;
+    height: 200px;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #343a40;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+/* Navegación de pestañas */
+.nav-tabs {
+    border-bottom: 2px solid #dee2e6;
+}
+
+.nav-link {
+    border: none;
+    color: #007bff;
+    font-size: 1.1rem;
+}
+
+.nav-link.active {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.nav-link:hover {
+    color: #0056b3;
+    background-color: #e9ecef;
+}
+
+.nav-item {
+    margin-right: 15px;
+}
+
+/* Contenido de las pestañas */
+.tab-content {
+    margin-top: 2rem;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.show {
+    display: block;
+}
+
+/* Grid de contenido en pestañas */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-md-4 {
+    flex: 1 0 32%;
+    margin: 10px;
+}
+
+@media (max-width: 767px) {
+    .col-md-4 {
+        flex: 1 0 100%;
+    }
+}
+
+/* Ajustes adicionales */
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+.shadow-sm {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
