@@ -4,8 +4,12 @@ from .models import Destination
 # Create your views here.
 
 def index(request):
-    destination_all = Destination.objects.all()
+    query = request.GET.get('q')
+    if query:
+        destination = Destination.objects.filter(name__contains=query)
+    else:
+        destination = Destination.objects.all()
     context = {
-        'destinations':destination_all
+        'destinations':destination
     }
     return render(request,'asa_travel/index.html',context)
