@@ -30,3 +30,6 @@ def destination_detail(request, destination_id):
         'restaurants': fr,
     }
     return render(request, 'asa_travel/destination_detail.html', context)
+
+def registration(request):
+    return render(request,'registration/register.html')
