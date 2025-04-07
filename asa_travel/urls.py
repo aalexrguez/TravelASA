@@ -8,5 +8,6 @@ app_name = 'asa_travel'
 urlpatterns = [
     path('',views.index),
     path('home/',views.index),
-    path('destination_detail/<int:destination_id>',views.destination_detail,name='destination_detail')
+    path('destination_detail/<int:destination_id>',views.destination_detail,name='destination_detail'),
+    path('accounts/register/',views.registration)
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
