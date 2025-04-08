@@ -22,7 +22,11 @@
                     <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Destinos</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Reseñas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Iniciar Sesión</a></li>
+                    {% if user.is_authenticated %}
+                            <a class="btn btn-link ms-3 text-light">Hola {{user}}</a>
+                        {% else %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Iniciar Sesión</a></li>
+                        {% endif %}
                 </ul>
             </div>
         </div>
