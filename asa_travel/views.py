@@ -1,8 +1,10 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404,redirect
 from django.http import HttpResponse
 from .models import Destination,Accommodation,ActivityAndTour\
                     ,FoodAndRestaurant,Attraction
 from .forms import ClientForm
+from django.contrib.auth import login,authenticate
+from django.contrib.auth.models import User
 # Create your views here.
 
 def index(request):
@@ -33,7 +35,31 @@ def destination_detail(request, destination_id):
     return render(request, 'asa_travel/destination_detail.html', context)
 
 def registration(request):
-    return render(request,'registration/register.html')
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        email = request.POST.get('email')
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+
+        # Validación simple
+        if User.objects.filter(username=username).exists():
+            return render(request, 'registration/register.html', {'error': 'El nombre de usuario ya existe.'})
+
+        # Crear usuario
+        user = User.objects.create_user(
+            username=username,
+            password=password,
+            email=email,
+            first_name=first_name,
+            last_name=last_name
+        )
+
+        # Iniciar sesión automáticamente
+        login(request, user)
+        return redirect('/')
+
+    return render(request, 'registration/register.html')
 
 def update_profile(request):
     frmClient = ClientForm()
