@@ -9,5 +9,6 @@ urlpatterns = [
     path('',views.index),
     path('home/',views.index),
     path('destination_detail/<int:destination_id>',views.destination_detail,name='destination_detail'),
-    path('accounts/register/',views.registration)
+    path('accounts/register/',views.registration,name='register'),
+    path('accounts/update_profile/',views.update_profile,name='update_profile')
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
