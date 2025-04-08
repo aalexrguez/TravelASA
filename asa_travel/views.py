@@ -2,6 +2,7 @@ from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponse
 from .models import Destination,Accommodation,ActivityAndTour\
                     ,FoodAndRestaurant,Attraction
+from .forms import ClientForm
 # Create your views here.
 
 def index(request):
@@ -33,3 +34,10 @@ def destination_detail(request, destination_id):
 
 def registration(request):
     return render(request,'registration/register.html')
+
+def update_profile(request):
+    frmClient = ClientForm()
+    context = {
+        'frmClient': frmClient
+    }
+    return render(request,'registration/update_profile.html',context)
