@@ -9,3 +9,7 @@ class ClientForm(forms.Form):
     client_phone = forms.CharField(label='Telefono')
     client_date_of_birth = forms.DateField(label='Fecha de nacimiento',input_formats=['%Y-%m-%d'],widget=DateInput)
     client_image = forms.ImageField(label='Imagen')
+
+class Review(forms.Form):
+    comment = forms.CharField(label='Reseña',widget=forms.Textarea)
+    rating = forms.Select()
