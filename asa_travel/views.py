@@ -1,10 +1,11 @@
 from django.shortcuts import render,get_object_or_404,redirect
 from django.http import HttpResponse
 from .models import Destination,Accommodation,ActivityAndTour\
-                    ,FoodAndRestaurant,Attraction
+                    ,FoodAndRestaurant,Attraction,Client
 from .forms import ClientForm
 from django.contrib.auth import login,authenticate
 from django.contrib.auth.models import User
+from django.contrib import messages
 # Create your views here.
 
 def index(request):
@@ -42,11 +43,11 @@ def registration(request):
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
 
-        # Validación simple
+        
         if User.objects.filter(username=username).exists():
             return render(request, 'registration/register.html', {'error': 'El nombre de usuario ya existe.'})
 
-        # Crear usuario
+        
         user = User.objects.create_user(
             username=username,
             password=password,
@@ -55,15 +56,10 @@ def registration(request):
             last_name=last_name
         )
 
-        # Iniciar sesión automáticamente
+        
         login(request, user)
         return redirect('/')
 
     return render(request, 'registration/register.html')
 
-def update_profile(request):
-    frmClient = ClientForm()
-    context = {
-        'frmClient': frmClient
-    }
-    return render(request,'registration/update_profile.html',context)
+
