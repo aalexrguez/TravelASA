@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import date
 
 class Destination(models.Model):
     destination_name = models.CharField(max_length=80, unique=True)
@@ -73,7 +74,7 @@ class Client(models.Model):
     client_user = models.OneToOneField(User,on_delete = models.RESTRICT)
     client_sex = models.CharField(max_length=1,choices=SEX_CHOICES,default='M')
     client_phone = models.CharField(max_length=20)
-    client_date_of_birth = models.DateField()
+    client_date_of_birth = models.DateField(null=True)
     client_image = models.ImageField(upload_to='client',blank=True)
 
     def __str__(self):
