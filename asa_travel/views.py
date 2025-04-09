@@ -62,4 +62,6 @@ def registration(request):
 
     return render(request, 'registration/register.html')
 
+def review(request):
+    return render(request,'asa_travel/review.html')
 
