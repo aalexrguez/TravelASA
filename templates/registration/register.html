@@ -1,0 +1,67 @@
+{% extends "asa_travel/base.html" %}
+
+{% block content %}
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header text-center">
+                    <h4>Create an Account</h4>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        <!-- Username -->
+                        <div class="mb-3">
+                            <label for="id_username" class="form-label">Username</label>
+                            <input type="text" name="username" id="id_username" class="form-control" placeholder="e.g. alejandro123" required>
+                            <div class="form-text">Only letters, numbers, and @/./+/-/_ allowed.</div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label for="id_email" class="form-label">Email</label>
+                            <input type="email" name="email" id="id_email" class="form-control" placeholder="e.g. alex@example.com" required>
+                            <div class="form-text">We’ll never share your email with anyone else.</div>
+                        </div>
+
+                        <!-- First Name -->
+                        <div class="mb-3">
+                            <label for="id_first_name" class="form-label">First Name</label>
+                            <input type="text" name="first_name" id="id_first_name" class="form-control" placeholder="e.g. Alejandro" required>
+                            <div class="form-text">Enter your given name.</div>
+                        </div>
+
+                        <!-- Last Name -->
+                        <div class="mb-3">
+                            <label for="id_last_name" class="form-label">Last Name</label>
+                            <input type="text" name="last_name" id="id_last_name" class="form-control" placeholder="e.g. Rodríguez" required>
+                            <div class="form-text">Enter your family name or surname.</div>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <label for="id_password1" class="form-label">Password</label>
+                            <input type="password" name="password" id="id_password" class="form-control" placeholder="Create a secure password" required>
+                            <div class="form-text">At least 8 characters, include letters and numbers.</div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Register</button>
+                        {% if error %}
+                            <p style="color: red;">{{ error }}</p>
+                        {% endif %}
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    Already have an account? <a href="{% url 'login' %}">Login here</a>.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
