@@ -79,3 +79,14 @@ class Client(models.Model):
 
     def __str__(self):
         return self.client_user.username
+
+class Review(models.Model):
+    review_user = models.ForeignKey(User,on_delete=models.RESTRICT)
+    review_destination = models.ForeignKey(Destination,on_delete=models.RESTRICT)
+    review_comment = models.TextField()
+    review_raiting = models.IntegerField()
+    review_create_at = models.DateField(auto_now=True)
+
+    def __str__(self):
+        return self.review_user.username + self.review_destination.destination_name
+
