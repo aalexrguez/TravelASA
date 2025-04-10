@@ -152,3 +152,10 @@ def activities(request,destination_id):
         'activities':activities
     }
     return render(request,'asa_travel/activities.html',context)
+
+def restaurant(request,restaurant_id):
+    restaurant = FoodAndRestaurant.objects.get(id=restaurant_id)
+    context = {
+        'restaurant':restaurant
+    }
+    return render(request,'asa_travel/restaurant.html',context)
