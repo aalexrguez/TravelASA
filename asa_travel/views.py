@@ -120,3 +120,15 @@ def update_review(request,review_id):
         'review':review
     }
     return render(request,'asa_travel/update_review.html',context)
+
+def delete_review(request,review_id):
+    review = get_object_or_404(Review,id=review_id,review_user=request.user)
+    if request.method == 'POST':
+        review.delete()
+        return redirect('asa_travel/reviews.html/')
+    
+    context = {
+        'review':review
+    }
+    
+    return render(request,'asa_travel/my_reviews.html',context)
