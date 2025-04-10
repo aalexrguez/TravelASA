@@ -25,6 +25,7 @@ def destination_detail(request, destination_id):
     accommodation = Accommodation.objects.filter(accommodation_destination=destination_id)
     activity = ActivityAndTour.objects.filter(at_destination=destination_id)
     fr = FoodAndRestaurant.objects.filter(fd_destination=destination_id)
+    reviews = Review.objects.filter(review_destination=destination_id)
 
     context = {
         'destination': obj_destination,
@@ -32,6 +33,7 @@ def destination_detail(request, destination_id):
         'accommodations': accommodation,
         'activities': activity,
         'restaurants': fr,
+        'reviews':reviews
     }
     return render(request, 'asa_travel/destination_detail.html', context)
 
