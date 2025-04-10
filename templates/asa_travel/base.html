@@ -21,7 +21,7 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Destinos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Reseñas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'asa_travel:review' %}">Reseñas</a></li>
                     {% if user.is_authenticated %}
                             <a class="btn btn-link ms-3 text-light">Hola {{user}}</a>
                         {% else %}
