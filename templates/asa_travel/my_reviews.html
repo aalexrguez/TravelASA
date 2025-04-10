@@ -1,0 +1,49 @@
+{% extends "asa_travel/base.html" %}
+{% block content %}
+{% load static %}
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Reseñas de {{user.username}}</h2>
+
+    {% if user_reviews %}
+        <div class="row">
+            {% for review in user_reviews %}
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="card-title mb-1">
+                            <strong>Destino:</strong> {{ review.review_destination.destination_name }}
+                        </h5>
+                        <p class="text-warning mb-2">
+                            {% for i in "12345"|make_list %}
+                                {% if forloop.counter <= review.review_rating %}
+                                    ★
+                                {% else %}
+                                    ☆
+                                {% endif %}
+                            {% endfor %}
+                        </p>
+                        <p class="card-text">{{ review.review_comment }}</p>
+                        <p class="text-muted small">Fecha: {{ review.review_create_at }}</p>
+
+                        <div class="d-flex justify-content-between mt-3">
+                            <a href="{% url 'asa_travel:update_review' review.id %}" class="btn btn-outline-primary btn-sm">
+                                ✏️ Editar
+                            </a>
+                            <form method="POST" action="{% url 'asa_travel:delete_review' review.id %}" onsubmit="return confirm('¿Estás seguro que deseas eliminar esta reseña?')">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-outline-danger btn-sm">🗑 Eliminar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-info text-center">
+            Aún no has publicado ninguna reseña.
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
