@@ -89,3 +89,10 @@ def review(request):
     }
     return render(request,'asa_travel/review.html',context)
 
+def my_reviews(request):
+    user_reviews = Review.objects.filter(review_user=request.user)
+    context = {
+        'user_reviews':user_reviews
+    }
+    return render(request,'asa_travel/my_reviews.html',context)
+
