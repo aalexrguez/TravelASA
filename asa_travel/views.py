@@ -1,8 +1,8 @@
 from django.shortcuts import render,get_object_or_404,redirect
 from django.http import HttpResponse
 from .models import Destination,Accommodation,ActivityAndTour\
-                    ,FoodAndRestaurant,Attraction,Client
-from .forms import ClientForm
+                    ,FoodAndRestaurant,Attraction,Client,Review
+from .forms import ClientForm,ReviewForm
 from django.contrib.auth import login,authenticate
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -63,5 +63,27 @@ def registration(request):
     return render(request, 'registration/register.html')
 
 def review(request):
-    return render(request,'asa_travel/review.html')
+    if request.method == 'POST':
+        frmReview = ReviewForm(request.POST)
+        if frmReview.is_valid():
+            dataReview = frmReview.cleaned_data
+            destination = dataReview['destination']
+            comment = dataReview['comment']
+            rating = dataReview['rating']
+
+            Review.objects.create(
+                review_user = request.user,
+                review_destination = destination,
+                review_comment = comment,
+                review_rating = rating
+            )
+
+            return redirect('/')
+            
+    else:
+        frmReview = ReviewForm()
+    context = {
+        'frmReview':frmReview,
+    }
+    return render(request,'asa_travel/review.html',context)
 
