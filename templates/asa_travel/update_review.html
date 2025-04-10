@@ -1,0 +1,14 @@
+{% extends "asa_travel/base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Editar Reseña</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ frmReview.as_p }}
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+            <a href="{% url 'asa_travel:my_reviews' %}" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
