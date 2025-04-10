@@ -159,3 +159,10 @@ def restaurant(request,restaurant_id):
         'restaurant':restaurant
     }
     return render(request,'asa_travel/restaurant.html',context)
+
+def accommodation(request,accommodation_id):
+    accommodation = Accommodation.objects.get(id=accommodation_id)
+    context = {
+        'accommodation':accommodation
+    }
+    return render(request,'asa_travel/accommodation.html',context)
