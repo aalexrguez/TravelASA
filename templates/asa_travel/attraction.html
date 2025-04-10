@@ -1,0 +1,45 @@
+{% extends "asa_travel/base.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+  <h1 class="text-center">{{ attractions.attraction_name }}</h1>
+
+  <!-- Imagen principal -->
+  <div class="text-center mb-4">
+    <img src="{{ attractions.attraction_image.url }}" alt="Imagen principal" class="img-fluid rounded" />
+  </div>
+
+  <!-- Rating (si aplica) -->
+  {% if attractions.attraction_rating %}
+  <div class="text-center mb-3">
+    <h4>Rating: ⭐ {{ attractions.attraction_rating }}</h4>
+  </div>
+  {% endif %}
+
+  <!-- Descripción -->
+  <div class="mb-4">
+    <p>{{ attractions.attraction_description }}</p>
+  </div>
+
+  <!-- Precios -->
+  <div class="text-center mb-4">
+    <h4>Precio: ${{ attractions.attraction_price }}</h4>
+  </div>
+
+  <!-- Mapa -->
+  {% if attractions.attraction_map_url %}
+  <div class="mb-4">
+    <iframe src="{{ attractions.attraction_map_url }}" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+  {% endif %}
+
+  <!-- Sitio web -->
+  {% if attractions.attraction_website %}
+  <div class="text-center">
+    <a href="{{ attractions.attraction_website }}" class="btn btn-primary" target="_blank">Ir al sitio</a>
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}
