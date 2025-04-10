@@ -27,10 +27,10 @@
                         <p class="text-muted small">Fecha: {{ review.review_create_at }}</p>
 
                         <div class="d-flex justify-content-between mt-3">
-                            <a href="#" class="btn btn-outline-primary btn-sm">
+                            <a href="{% url 'asa_travel:update_review' review.id %}" class="btn btn-outline-primary btn-sm">
                                 ✏️ Editar
                             </a>
-                            <form method="post"  onsubmit="return confirm('¿Estás seguro que deseas eliminar esta reseña?')">
+                            <form method="POST"  onsubmit="return confirm('¿Estás seguro que deseas eliminar esta reseña?')">
                                 {% csrf_token %}
                                 <button type="submit" class="btn btn-outline-danger btn-sm">🗑 Eliminar</button>
                             </form>
