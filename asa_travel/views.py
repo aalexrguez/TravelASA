@@ -145,3 +145,10 @@ def attraction(request,destination_id):
         'attractions':attraction
     }
     return render(request,'asa_travel/attraction.html',context)
+
+def activities(request,destination_id):
+    activities = ActivityAndTour.objects.get(id=destination_id)
+    context = {
+        'activities':activities
+    }
+    return render(request,'asa_travel/activities.html',context)
