@@ -10,5 +10,5 @@ urlpatterns = [
     path('home/',views.index),
     path('destination_detail/<int:destination_id>',views.destination_detail,name='destination_detail'),
     path('accounts/register/',views.registration,name='register'),
-    path('review/',views.review)
+    path('review/',views.review,name='review')
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
