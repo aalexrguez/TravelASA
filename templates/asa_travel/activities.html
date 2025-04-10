@@ -1,0 +1,54 @@
+{% extends "asa_travel/base.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+  <h1 class="text-center">{{ activities.at_name }}</h1>
+
+  <!-- Imagen principal -->
+  <div class="text-center mb-4">
+    <img src="{{ activities.at_image.url }}" alt="Imagen principal" class="img-fluid rounded" />
+  </div>
+
+  <!-- Rating (si aplica) -->
+  {% if activities.attraction_rating %}
+  <div class="text-center mb-3">
+    <h4>Rating: ⭐ {{ activities.attraction_rating }}</h4>
+  </div>
+  {% endif %}
+
+  <!-- Descripción -->
+  <div class="mb-4">
+    <p>{{ activities.at_description }}</p>
+  </div>
+
+  <!-- Precios -->
+  <div class="text-center mb-4">
+    <h4>Precio: ${{ activities.at_price }}</h4>
+  </div>
+
+  <div class="text-center mb-4">
+    <h4>Duracion: ${{ activities.at_duration }}</h4>
+  </div>
+
+  <div class="text-center mb-4">
+    <h4>Dias disponibles: ${{ activities.at_available_dates }}</h4>
+  </div>
+
+
+  <!-- Mapa -->
+  {% if activities.at_map_url %}
+  <div class="mb-4">
+    <iframe src="{{ activities.at_map_url }}" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+  {% endif %}
+
+  <!-- Sitio web -->
+  {% if activities.at_website %}
+  <div class="text-center">
+    <a href="{{ activities.at_website }}" class="btn btn-primary" target="_blank">Ir al sitio</a>
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}

@@ -39,7 +39,6 @@
     <!-- Atracciones -->
     <div class="tab-pane fade show active" id="attractions" role="tabpanel">
         <div class="row">
-            <!-- Repite esta tarjeta para cada atracción -->
              {% for attraction in attractions %}
             <div class="col-md-4 mb-4">
                 <div class="card h-100 shadow-sm">
@@ -47,7 +46,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{attraction.attraction_name}}</h5>
                         <p class="card-text">{{attraction.attraction_description}}</p>
-                        <a href="#" class="btn btn-primary mt-2">Ir</a>
+                        <a href="{%url 'asa_travel:attraction' attraction.id%}" class="btn btn-primary mt-2">Ir</a>
                     </div>
                 </div>
             </div>
@@ -65,7 +64,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{restaurant.fd_name}}</h5>
                         <p class="card-text">{{restaurant.fd_description}}</p>
-                        <a href="#" class="btn btn-primary mt-2">Ir</a>
+                        <a href="{% url 'asa_travel:restaurant' restaurant.id %}" class="btn btn-primary mt-2">Ir</a>
                     </div>
                 </div>
             </div>
@@ -82,8 +81,8 @@
                     <img src="{{accommodation.accommodation_image.url}}" class="card-img-top" alt="NOMBRE_HOTEL">
                     <div class="card-body">
                         <h5 class="card-title">{{accommodation.accommodation_name}}</h5>
-                        <p class="card-text">Precio aproximado: {{accomodation.accommodation_price_per_night}}</p>
-                        <a href="#" class="btn btn-primary mt-2">Ir</a>
+                        <p class="card-text">Precio aproximado: {{accommodation.accommodation_price_per_night}}</p>
+                        <a href="{% url 'asa_travel:accommodation' accommodation.id %}" class="btn btn-primary mt-2">Ir</a>
                     </div>
                 </div>
             </div>
@@ -101,7 +100,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{activity.at_name}}</h5>
                         <p class="card-text">{{activity.at_description}}</p>
-                        <a href="#" class="btn btn-primary mt-2">Ir</a>
+                        <a href="{%url 'asa_travel:activities' activity.id%} " class="btn btn-primary mt-2">Ir</a>
                     </div>
                 </div>
             </div>

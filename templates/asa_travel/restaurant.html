@@ -1,0 +1,53 @@
+{% extends "asa_travel/base.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+  <h1 class="text-center">{{ restaurant.attraction_name }}</h1>
+
+  <!-- Imagen principal -->
+  <div class="text-center mb-4">
+    <img src="{{ restaurant.fd_image.url }}" alt="Imagen principal" class="img-fluid rounded" />
+  </div>
+
+  <!-- Rating (si aplica) -->
+  {% if restaurant.fd_rating %}
+  <div class="text-center mb-3">
+    <h4>Rating: ⭐ {{ restaurant.fd_rating }}</h4>
+  </div>
+  {% endif %}
+
+  <!-- Descripción -->
+  <div class="mb-4">
+    <p>{{ restaurant.fd_description }}</p>
+  </div>
+
+  <!-- Precios -->
+  <div class="text-center mb-4">
+    <h4>Precios: ${{ restaurant.fd_price_range }}</h4>
+  </div>
+
+  <div class="text-center mb-4">
+    <h4>Horario: ${{ restaurant.fd_opening_hours }}</h4>
+  </div>
+
+  <div class="text-center mb-4">
+    <h4>Tipo de comida: ${{ restaurant.fd_food_type }}</h4>
+  </div>
+
+  <!-- Mapa -->
+  {% if restaurant.fd_map_url %}
+  <div class="mb-4">
+    <iframe src="{{ restaurant.fd_map_url }}" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+  {% endif %}
+
+  <!-- Sitio web -->
+  {% if restaurant.fd_website %}
+  <div class="text-center">
+    <a href="{{ restaurant.fd_website }}" class="btn btn-primary" target="_blank">Ir al sitio</a>
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}
