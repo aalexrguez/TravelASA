@@ -81,8 +81,8 @@
                     <img src="{{accommodation.accommodation_image.url}}" class="card-img-top" alt="NOMBRE_HOTEL">
                     <div class="card-body">
                         <h5 class="card-title">{{accommodation.accommodation_name}}</h5>
-                        <p class="card-text">Precio aproximado: {{accomodation.accommodation_price_per_night}}</p>
-                        <a href="#" class="btn btn-primary mt-2">Ir</a>
+                        <p class="card-text">Precio aproximado: {{accommodation.accommodation_price_per_night}}</p>
+                        <a href="{% url 'asa_travel:accommodation' accommodation.id %}" class="btn btn-primary mt-2">Ir</a>
                     </div>
                 </div>
             </div>
