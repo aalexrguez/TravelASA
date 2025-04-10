@@ -37,6 +37,8 @@ def destination_detail(request, destination_id):
     }
     return render(request, 'asa_travel/destination_detail.html', context)
 
+"""LOGIN"""
+
 def registration(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -63,6 +65,9 @@ def registration(request):
         return redirect('/')
 
     return render(request, 'registration/register.html')
+
+
+"""Reseñas """
 
 def review(request):
     if request.method == 'POST':
@@ -132,3 +137,11 @@ def delete_review(request,review_id):
     }
     
     return render(request,'asa_travel/my_reviews.html',context)
+
+""" Categorias del destino """
+def attraction(request,destination_id):
+    attraction = Attraction.objects.get(id=destination_id)
+    context = {
+        'attractions':attraction
+    }
+    return render(request,'asa_travel/attraction.html',context)
