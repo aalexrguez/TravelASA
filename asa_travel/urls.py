@@ -12,5 +12,6 @@ urlpatterns = [
     path('accounts/register/',views.registration,name='register'),
     path('review/',views.review,name='review'),
     path('my_reviews/',views.my_reviews,name='my_reviews'),
-    path('update_review/<int:review_id>',views.update_review,name='update_review')
+    path('update_review/<int:review_id>',views.update_review,name='update_review'),
+    path('delete_review/<int:review_id>',views.delete_review,name='delete_review')
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
