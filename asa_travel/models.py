@@ -25,6 +25,10 @@ class Attraction(models.Model):
     attraction_opening_hours = models.CharField(max_length=50)
     attraction_price = models.DecimalField(max_digits=7, decimal_places=2)
     attraction_image = models.ImageField(upload_to='attraction',blank=True)
+    attraction_website = models.URLField(blank=True, null=True)
+    attraction_map_url = models.TextField(blank=True, null=True)
+    attraction_rating = models.IntegerField(blank=True,null=True)
+
 
     def __str__(self):
         return self.attraction_name
@@ -37,6 +41,10 @@ class FoodAndRestaurant(models.Model):
     fd_price_range = models.CharField(max_length=10)
     fd_opening_hours = models.CharField(max_length=50)
     fd_image = models.ImageField(upload_to='foodRestaurant',blank=True)
+    fd_website = models.URLField(blank=True, null=True)
+    fd_map_url = models.TextField(blank=True, null=True)
+    fd_rating = models.IntegerField(blank=True,null=True)
+
 
     def __str__(self):
         return self.fd_name
@@ -49,6 +57,10 @@ class Accommodation(models.Model):
     accommodation_price_per_night = models.DecimalField(max_digits=7, decimal_places=2)
     accommodation_rating = models.FloatField()
     accommodation_image = models.ImageField(upload_to='accommodation',blank=True)
+    accommodation_website = models.URLField(blank=True, null=True)
+    accommodation_map_url = models.TextField(blank=True, null=True)
+    accommodation_rating = models.IntegerField(blank=True,null=True)
+
 
     def __str__(self):
         return self.accommodation_name
@@ -61,6 +73,10 @@ class ActivityAndTour(models.Model):
     at_price = models.DecimalField(max_digits=7, decimal_places=2)
     at_available_dates = models.CharField(max_length=100)
     at_image = models.ImageField(upload_to='activity',blank=True)
+    at_website = models.URLField(blank=True, null=True)
+    at_map_url = models.TextField(blank=True, null=True)
+    at_rating = models.IntegerField(blank=True,null=True)
+
 
     def __str__(self):
         return self.at_name
