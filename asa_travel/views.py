@@ -96,3 +96,27 @@ def my_reviews(request):
     }
     return render(request,'asa_travel/my_reviews.html',context)
 
+
+def update_review(request,review_id):
+    review = get_object_or_404(Review,id=review_id,review_user=request.user)
+    if request.method == 'POST':
+        frmReview = ReviewForm(request.POST)
+        if frmReview.is_valid():
+            dataReview = frmReview.cleaned_data
+            review.review_destination = dataReview['destination']
+            review.review_comment = dataReview['comment']
+            review.review_rating = dataReview['rating']
+            review.save()
+            return redirect('/my_reviews/')
+    else:
+        frmReview = ReviewForm(initial={
+        'destination': review.review_destination,
+        'comment': review.review_comment,
+        'rating': review.review_rating,
+    })
+    
+    context = {
+        'frmReview':frmReview,
+        'review':review
+    }
+    return render(request,'asa_travel/update_review.html',context)
