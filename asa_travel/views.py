@@ -11,7 +11,7 @@ from django.contrib import messages
 def index(request):
     query = request.GET.get('q')
     if query:
-        destination = Destination.objects.filter(name__contains=query)
+        destination = Destination.objects.filter(destination_name__contains=query)
     else:
         destination = Destination.objects.all()
     context = {
