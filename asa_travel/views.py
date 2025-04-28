@@ -2,7 +2,8 @@ from django.shortcuts import render,get_object_or_404,redirect
 from django.http import HttpResponse
 from .models import Destination,Accommodation,ActivityAndTour\
                     ,FoodAndRestaurant,Attraction,Client,Review
-from .forms import ClientForm,ReviewForm
+from .forms import ClientForm,ReviewForm,AttractionForm,\
+                   RestaurantForm,AccommodationForm,ActivityForm
 from django.contrib.auth import login,authenticate
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -166,3 +167,117 @@ def accommodation(request,accommodation_id):
         'accommodation':accommodation
     }
     return render(request,'asa_travel/accommodation.html',context)
+
+"""VISTAS ADMIN EDICION"""
+def edit_attraction(request, attraction_id):
+    attraction = get_object_or_404(Attraction, id=attraction_id)
+
+    if request.method == 'POST':
+        frmAttraction = AttractionForm(request.POST, request.FILES, instance=attraction)
+        if frmAttraction.is_valid():
+            frmAttraction.save()
+            return redirect('/') 
+    else:
+        frmAttraction = AttractionForm(instance=attraction)
+
+    context = {
+        'frmAttraction': frmAttraction
+    }
+    return render(request, 'asa_travel/edit_attraction.html',context)
+
+def edit_restaurant(request,restaurant_id):
+    restaurant = get_object_or_404(FoodAndRestaurant,id=restaurant_id)
+
+    if request.method == 'POST':
+        frmRestaurant = RestaurantForm(request.POST,request.FILES,instance=restaurant)
+        if frmRestaurant.is_valid():
+            frmRestaurant.save()
+            return redirect('/')
+    else:
+        frmRestaurant = RestaurantForm(instance=restaurant)
+    
+    context = {
+        "frmRestaurant":frmRestaurant
+    }
+
+    return render(request,'asa_travel/edit_restaurant.html',context)
+
+def edit_accommodation(request,accommodation_id):
+    accommodation = get_object_or_404(Accommodation,id=accommodation_id)
+
+    if request.method == 'POST':
+        frmAccommodation = AccommodationForm(request.POST,request.FILES,instance=accommodation)
+        if frmAccommodation.is_valid():
+            frmAccommodation.save()
+            return redirect("/")
+    else:
+        frmAccommodation = AccommodationForm(instance=accommodation)
+    
+    context = {
+        "fmrAccomodation":frmAccommodation
+    }
+    
+    return render(request,'asa_travel/edit_accommodation.html',context)
+
+def edit_activity(request,activity_id):
+    activity = get_object_or_404(ActivityAndTour,id=activity_id)
+
+    if request.method == 'POST':
+        frmActivity = ActivityForm(request.POST,request.FILES,instance=activity)
+        if frmActivity.is_valid():
+            frmActivity.save()
+            return redirect("/")
+    else:
+        frmActivity = ActivityForm(instance=activity)
+    
+    context = {
+        "frmActivity":frmActivity
+    }
+
+    return render(request,'asa_travel/edit_activity.html',context)
+
+"""VISTAS ADMIN ELIMINACION"""
+
+def delete_review(request,review_id):
+    review = get_object_or_404(Review,id=review_id)
+
+    if request.method == 'POST':
+        review.delete()
+        return redirect(request.META.get('HTTP_REFERER', '/'))
+    
+    return redirect('/')
+
+def delete_attraction(request,attraction_id):
+    attraction = get_object_or_404(Attraction,id=attraction_id)
+
+    if request.method == 'POST':
+        attraction.delete()
+        return redirect(request.META.get('HTTP_REFERER', '/'))
+    
+    return redirect('/')
+
+def delete_restaurant(request,restaurant_id):
+    restaurant = get_object_or_404(FoodAndRestaurant,id=restaurant_id)
+
+    if request.method == 'POST':
+        restaurant.delete()
+        return redirect(request.META.get('HTTP_REFERER', '/'))
+    return redirect('/')
+
+def delete_accommodation(request,accommodation_id):
+    accommodation = get_object_or_404(Accommodation,id=accommodation_id)
+
+    if request.method == 'POST':
+        accommodation.delete()
+        return redirect(request.META.get('HTTP_REFERER', '/'))
+    
+    return redirect('/')
+
+def delete_activity(request,activity_id):
+    activity = get_object_or_404(ActivityAndTour,id=activity_id)
+
+    if request.method == 'POST':
+        activity.delete()
+        return redirect(request.META.get('HTTP_REFERER', '/'))
+    
+    return redirect('/')
