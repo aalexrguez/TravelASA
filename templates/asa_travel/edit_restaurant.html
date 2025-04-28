@@ -1,0 +1,115 @@
+{% extends "asa_travel/base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Editar Restaurante</h2>
+
+    <form method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            <label for="id_fd_name" class="form-label">Nombre</label>
+            {{ frmRestaurant.fd_name }}
+            {% if frmRestaurant.fd_name.errors %}
+                <div class="text-danger">
+                    {{ frmRestaurant.fd_name.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="mb-3">
+            <label for="id_fd_description" class="form-label">Descripción</label>
+            {{ frmRestaurant.fd_description }}
+            {% if frmRestaurant.fd_description.errors %}
+                <div class="text-danger">
+                    {{ frmRestaurant.fd_description.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="mb-3">
+            <label for="id_fd_destination" class="form-label">Destino</label>
+            {{ frmRestaurant.fd_destination }}
+            {% if frmRestaurant.fd_destination.errors %}
+                <div class="text-danger">
+                    {{ frmRestaurant.fd_destination.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="mb-3">
+            <label for="id_fd_food_type" class="form-label">Tipo de Comida</label>
+            {{ frmRestaurant.fd_food_type }}
+            {% if frmRestaurant.fd_food_type.errors %}
+                <div class="text-danger">
+                    {{ frmRestaurant.fd_food_type.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="mb-3">
+            <label for="id_fd_price_range" class="form-label">Rango de Precio</label>
+            {{ frmRestaurant.fd_price_range }}
+            {% if frmRestaurant.fd_price_range.errors %}
+                <div class="text-danger">
+                    {{ frmRestaurant.fd_price_range.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="mb-3">
+            <label for="id_fd_opening_hours" class="form-label">Horario</label>
+            {{ frmRestaurant.fd_opening_hours }}
+            {% if frmRestaurant.fd_opening_hours.errors %}
+                <div class="text-danger">
+                    {{ frmRestaurant.fd_opening_hours.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="mb-3">
+            <label for="id_fd_image" class="form-label">Imagen</label>
+            {{ frmRestaurant.fd_image }}
+            {% if frmRestaurant.fd_image.errors %}
+                <div class="text-danger">
+                    {{ frmRestaurant.fd_image.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="mb-3">
+            <label for="id_fd_website" class="form-label">Sitio Web</label>
+            {{ frmRestaurant.fd_website }}
+            {% if frmRestaurant.fd_website.errors %}
+                <div class="text-danger">
+                    {{ frmRestaurant.fd_website.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="mb-3">
+            <label for="id_fd_map_url" class="form-label">Mapa (URL)</label>
+            {{ frmRestaurant.fd_map_url }}
+            {% if frmRestaurant.fd_map_url.errors %}
+                <div class="text-danger">
+                    {{ frmRestaurant.fd_map_url.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="mb-3">
+            <label for="id_fd_rating" class="form-label">Calificación (1-5)</label>
+            {{ frmRestaurant.fd_rating }}
+            {% if frmRestaurant.fd_rating.errors %}
+                <div class="text-danger">
+                    {{ frmRestaurant.fd_rating.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        <a href="/" class="btn btn-secondary">Cancelar</a>
+
+    </form>
+</div>
+{% endblock %}

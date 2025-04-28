@@ -100,8 +100,8 @@ class Review(models.Model):
 
     RATING_CHOICES = [(i, str(i)) for i in range(1, 6)]
 
-    review_user = models.ForeignKey(User,on_delete=models.RESTRICT)
-    review_destination = models.ForeignKey(Destination,on_delete=models.RESTRICT)
+    review_user = models.ForeignKey(User,on_delete=models.CASCADE)
+    review_destination = models.ForeignKey(Destination,on_delete=models.CASCADE)
     review_comment = models.TextField()
     review_rating = models.IntegerField(choices=RATING_CHOICES)
     review_create_at = models.DateField(auto_now=True)
