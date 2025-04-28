@@ -50,9 +50,9 @@
 
                         {% if user.is_staff %}
                         <!-- Botón Editar -->
-                        <a href="#" class="btn btn-warning mt-2">Editar</a>
+                        <a href="{% url 'asa_travel:edit_attraction' attraction.id %}" class="btn btn-warning mt-2">Editar</a>
                         <!-- Botón Eliminar -->
-                        <form method="post" action="" style="display:inline;">
+                        <form method="post" action="{% url 'asa_travel:delete_attraction' attraction.id %}" style="display:inline;">
                             {% csrf_token %}
                             <button type="submit" class="btn btn-danger mt-2">Eliminar</button>
                         </form>
@@ -78,9 +78,9 @@
 
                         {% if user.is_staff %}
                         <!-- Botón Editar -->
-                        <a href="#" class="btn btn-warning mt-2">Editar</a>
+                        <a href="{% url 'asa_travel:edit_restaurant' restaurant.id %}" class="btn btn-warning mt-2">Editar</a>
                         <!-- Botón Eliminar -->
-                        <form method="post" action="#" style="display:inline;">
+                        <form method="POST" action="{% url 'asa_travel:delete_restaurant' restaurant.id %}" style="display:inline;">
                             {% csrf_token %}
                             <button type="submit" class="btn btn-danger mt-2">Eliminar</button>
                         </form>
@@ -106,9 +106,9 @@
 
                         {% if user.is_staff %}
                         <!-- Botón Editar -->
-                        <a href="#" class="btn btn-warning mt-2">Editar</a>
+                        <a href="{% url 'asa_travel:edit_accommodation' accommodation.id %}" class="btn btn-warning mt-2">Editar</a>
                         <!-- Botón Eliminar -->
-                        <form method="post" action="" style="display:inline;">
+                        <form method="post" action="{% url 'asa_travel:delete_accommodation' accommodation.id %}" style="display:inline;">
                             {% csrf_token %}
                             <button type="submit" class="btn btn-danger mt-2">Eliminar</button>
                         </form>
@@ -134,9 +134,9 @@
 
                         {% if user.is_staff %}
                         <!-- Botón Editar -->
-                        <a href="#" class="btn btn-warning mt-2">Editar</a>
+                        <a href="{% url 'asa_travel:edit_activity' activity.id %}" class="btn btn-warning mt-2">Editar</a>
                         <!-- Botón Eliminar -->
-                        <form method="post" action="" style="display:inline;">
+                        <form method="post" action="{% url 'asa_travel:delete_activity' activity.id %}" style="display:inline;">
                             {% csrf_token %}
                             <button type="submit" class="btn btn-danger mt-2">Eliminar</button>
                         </form>
@@ -173,7 +173,7 @@
 
                         {% if user.is_staff %}
                         <!-- Botón Eliminar -->
-                        <form method="post" action="" style="display:inline;">
+                        <form method="post" action="{% url 'asa_travel:delete_review' review.id %}" style="display:inline;">
                             {% csrf_token %}
                             <button type="submit" class="btn btn-danger mt-2">Eliminar</button>
                         </form>
