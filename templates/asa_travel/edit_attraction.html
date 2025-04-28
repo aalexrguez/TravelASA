@@ -1,0 +1,60 @@
+{% extends "asa_travel/base.html" %}
+{% load static %}
+{% block content %}
+
+<h1 class="mb-4 text-center">Actualizar Atracción</h1>
+
+<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="row g-3">
+            <div class="col-md-6">
+                {{ frmAttraction.attraction_name.label_tag }}
+                {{ frmAttraction.attraction_name }}
+                {{ frmAttraction.attraction_name.errors }}
+            </div>
+            <div class="col-md-6">
+                {{ frmAttraction.attraction_destination.label_tag }}
+                {{ frmAttraction.attraction_destination }}
+            </div>
+            <div class="col-md-6">
+                {{ frmAttraction.attraction_category.label_tag }}
+                {{ frmAttraction.attraction_category }}
+            </div>
+            <div class="col-md-6">
+                {{ frmAttraction.attraction_opening_hours.label_tag }}
+                {{ frmAttraction.attraction_opening_hours }}
+            </div>
+            <div class="col-md-6">
+                {{ frmAttraction.attraction_price.label_tag }}
+                {{ frmAttraction.attraction_price }}
+            </div>
+            <div class="col-md-6">
+                {{ frmAttraction.attraction_rating.label_tag }}
+                {{ frmAttraction.attraction_rating }}
+            </div>
+            <div class="col-md-12">
+                {{ frmAttraction.attraction_description.label_tag }}
+                {{ frmAttraction.attraction_description }}
+                {{ frmAttraction.attraction_description.errors }}
+            </div>
+            <div class="col-md-6">
+                {{ frmAttraction.attraction_image.label_tag }}
+                {{ frmAttraction.attraction_image }}
+            </div>
+            <div class="col-md-6">
+                {{ frmAttraction.attraction_website.label_tag }}
+                {{ frmAttraction.attraction_website }}
+            </div>
+            <div class="col-md-12">
+                {{ frmAttraction.attraction_map_url.label_tag }}
+                {{ frmAttraction.attraction_map_url }}
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-success px-5">Guardar cambios</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
